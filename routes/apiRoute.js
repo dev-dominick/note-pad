@@ -1,5 +1,7 @@
 const router = require("express").Router();
 
-router.get("/notes", (req, res) => res.json(notePad));
+router.get("/api/notes", (req, res) => res.json(notePad));
+
+router.post("/api/notes"), (req, res) => req.json(notePad)
 
 module.exports = router;
