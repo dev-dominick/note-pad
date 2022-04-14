@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const apiRoute = require("./routes/apiRoute");
 const htmlRoute = require("./routes/htmlRoute");
-const notePad = require("./db/db.json");
+// const notePad = require("./db/db.json");
 
 const PORT = 3001;
 
@@ -12,16 +12,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
-// app.use("/api", apiRoute);
-// app.use("/", htmlRoute);
+app.use("/api", apiRoute);
+app.use("/", htmlRoute);
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
-});
 
-app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/notes.html"));
-});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
@@ -36,14 +30,7 @@ app.listen(PORT, () => {
 //   post /api/notes should receive new note to save on the req body
 
 
-
-
-
 // GIVEN a note-taking application
-
-// WHEN I open the Note Taker
-// THEN I am presented with a landing page with a link to a notes page
-
 
 // WHEN I click on the link to the notes page
 // THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
