@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const apiRoute = require("./routes/apiRoute");
 const htmlRoute = require("./routes/htmlRoute");
+const fs = require("fs")
 // const notePad = require("./db/db.json");
 
 const PORT = 3001;
