@@ -8,7 +8,6 @@ router.get("/notes", (req, res) => {
 });
 
 router.post("/notes", (req, res) => {
-  debugger
   let iD = uuidv4();
   let newNote = {
     id: iD,
@@ -16,23 +15,16 @@ router.post("/notes", (req, res) => {
     text: req.body.text,
   };
 
-  fs.readFile("../db/db.json", "utf8", (err, data) => {
+  notePad.push(newNote);
+
+  fs.writeFile("./db/db.json", JSON.stringify(notePad), (err) => {
     if (err) {
-      throw (err);
+      throw err;
     }
-    console.log(data);
-    const existingNotes = JSON.parse(data);
+    res.send(notePad);
+    });
 
-    existingNotes.push(newNote);
+  });
 
-    fs.writeFile("../db/db.json", JSON.stringify(notePad), (err) => {
-      if (err) {
-        throw (err);
-      }
-      res.send(existingNotes);
-    })
-  })
-  res.send(existingNotes)
-});
 
 module.exports = router;
