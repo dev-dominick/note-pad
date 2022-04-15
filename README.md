@@ -22,7 +22,7 @@ All dependencies are stores in the package.json file. Type npm i to install thes
 
 
  
-    ![alt text](./assets/img/note-pad.png)
+![alt text](./assets/img/note-pad.png)
 
 
 ## Credits
