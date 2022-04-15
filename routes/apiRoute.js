@@ -3,9 +3,9 @@ let notePad = require("../db/db.json");
 const fs = require("fs")
 const { v4: uuidv4 } = require("uuid");
 
-router.get("/notes", (req, res) => res.json(notePad));
+router.get("/api/notes", (req, res) => res.json(notePad));
 
-router.post("/notes"), (req, res) => {
+router.post("/api/notes"), (req, res) => {
   req.body.id = uuidv4()
   notePad.push(req.body)
   console.log({notePad});
