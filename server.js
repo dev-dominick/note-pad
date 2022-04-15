@@ -5,7 +5,7 @@ const htmlRoute = require("./routes/htmlRoute");
 const fs = require("fs")
 // const notePad = require("./db/db.json");
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
